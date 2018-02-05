@@ -7,7 +7,6 @@
     const eventUtil = {
         //绑定事件
         bindEvent: (function(dom, type, fn) {
-            var self = this;
             if (window.addEventListener) {
                 return function(dom, type, fn) {
                     dom.addEventListener(type, fn, false);
@@ -24,7 +23,6 @@
         })(),
         //获取当前触发源
         getEvent: (function(e) {
-            var self = this;
             if (window.event) {
                 return function(e) {
                     return window.event;
@@ -50,7 +48,6 @@
         },
         // 阻止冒泡
         stopPropagation: (function(e) {
-            var self = this;
             if (window.event) {
                 return function(e) {
                     window.event.cancelBubble = true;
@@ -63,7 +60,6 @@
         })(),
         //阻止默认行为
         preventDefault: (function(e) {
-            var self = this;
             if (window.event) {
                 return function(e) {
                     window.event.returnValue = false;
@@ -76,7 +72,6 @@
         })(),
         //解除事件
         removeBind: (function(ele, type, fn) {
-            var self = this;
             if (window.removeEventListerner) { // 标准浏览器
                 return function(dom, type, fn) {
                     ele.removeEventListerner(type, fn, false);
