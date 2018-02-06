@@ -20,6 +20,23 @@ app.get('*', function(req, res, next) {
     setHeader(res);
     next();
 })
+app.options('*', function(req, res, next) {
+    setHeader(res);
+    next();
+})
+app.post('*', function(req, res, next) {
+    setHeader(res);
+    next();
+})
+app.put('*', function(req, res, next) {
+    setHeader(res);
+    next();
+})
+app.delete('*', function(req, res, next) {
+    setHeader(res);
+    next();
+})
+
 app.get('/test-list', function(req, res) {
     fs.readFile('test.json', function(err, data) {
         if (err) return res.send(err);
@@ -28,18 +45,30 @@ app.get('/test-list', function(req, res) {
     })
 })
 app.delete('/test-list/:id', function(req, res) {
-    console.log(req.params.id)
-    setHeader(res);
     res.send(req.params.id)
 })
 app.put('/test-list/:id', function(req, res) {
-    console.log(req.params.id)
-    setHeader(res);
-    res.send(req.params.id)
+    var data = null;
+    if (req.body && req.body.id) {
+        data = req.body;
+        res.send(data);
+    } else {
+        var body = '';
+        req.on('data', function(chunk) {
+            body += chunk; //读取参数流转化为字符串
+        });
+        req.on('end', function() {
+            try {
+                data = JSON.parse(body);
+            } catch (err) {
+                data = body;
+            }
+            res.send(data);
+        })
+    }
 })
 app.post('/test-list/:id', function(req, res) {
     var data = null;
-    setHeader(res);
     if (req.body && req.body.id) {
         data = req.body;
         res.send(data);

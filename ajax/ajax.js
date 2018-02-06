@@ -99,7 +99,6 @@
             var obj = this.getSendInfo();
             var type = this.setting.type.toLowerCase();
             this.xmlhttp.open(type, obj.newurl, obj.async);
-            this.xmlhttp.setRequestHeader('Content-Type', 'text/plain;charset=UTF-8');
             this.xmlhttp.send(obj.datastr);
         },
         beforeSendHandle: function() {

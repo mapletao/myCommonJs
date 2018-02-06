@@ -30,6 +30,10 @@
         ztAjax({
                 type: 'put',
                 url: 'http://127.0.0.1:4000/test-list/19',
+                data: {
+                    id: 1,
+                    name: 2
+                },
                 success: function(res) {
                     console.log('put', res)
                 },
