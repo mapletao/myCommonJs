@@ -7,16 +7,16 @@
 <body>
     <script src='ajax.js'></script>
     <script>
-        // ztAjax({
-        //     type: 'get',
-        //     url: 'http://127.0.0.1:4000/test-list',
-        //     success: function(res) {
-        //         console.log('get', res)
-        //     },
-        //     error: function(res) {
-        //         console.log(res)
-        //     }
-        // })
+        ztAjax({
+            type: 'get',
+            url: 'http://127.0.0.1:4000/test-list',
+            success: function(res) {
+                console.log('get', res)
+            },
+            error: function(res) {
+                console.log(res)
+            }
+        })
         ztAjax({
             type: 'delete',
             url: 'http://127.0.0.1:4000/test-list/17',
@@ -28,33 +28,33 @@
             }
         })
         ztAjax({
-                type: 'put',
-                url: 'http://127.0.0.1:4000/test-list/19',
-                data: {
-                    id: 1,
-                    name: 2
-                },
-                success: function(res) {
-                    console.log('put', res)
-                },
-                error: function(res) {
-                    console.log(res)
-                }
-            })
-            // ztAjax({
-            //     type: 'post',
-            //     url: 'http://127.0.0.1:4000/test-list/15?aaa',
-            //     data: {
-            //         id: 1,
-            //         name: 2
-            //     },
-            //     success: function(res) {
-            //         console.log('post', typeof res, res)
-            //     },
-            //     error: function(res) {
-            //         console.log(res)
-            //     }
-            // })
+            type: 'put',
+            url: 'http://127.0.0.1:4000/test-list/19',
+            data: {
+                id: 1,
+                name: 2
+            },
+            success: function(res) {
+                console.log('put', res)
+            },
+            error: function(res) {
+                console.log(res)
+            }
+        })
+        ztAjax({
+            type: 'post',
+            url: 'http://127.0.0.1:4000/test-list/15?aaa',
+            data: {
+                id: 1,
+                name: 2
+            },
+            success: function(res) {
+                console.log('post', typeof res, res)
+            },
+            error: function(res) {
+                console.log(res)
+            }
+        })
     </script>
 </body>
 

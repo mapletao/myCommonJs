@@ -16,26 +16,33 @@ function setHeader(res) {
     res.header("X-Powered-By", ' 3.2.1')
     res.header("Content-Type", "application/json;charset=utf-8");
 }
-app.get('*', function(req, res, next) {
-    setHeader(res);
-    next();
-})
-app.options('*', function(req, res, next) {
-    setHeader(res);
-    next();
-})
-app.post('*', function(req, res, next) {
-    setHeader(res);
-    next();
-})
-app.put('*', function(req, res, next) {
-    setHeader(res);
-    next();
-})
-app.delete('*', function(req, res, next) {
-    setHeader(res);
-    next();
-})
+var methods = ['get', 'options', 'post', 'put', 'delete'];
+methods.forEach(function(item) {
+    app[item]('*', function(req, res, next) {
+        setHeader(res);
+        next();
+    });
+});
+// app.get('*', function(req, res, next) {
+//     setHeader(res);
+//     next();
+// })
+// app.options('*', function(req, res, next) {
+//     setHeader(res);
+//     next();
+// })
+// app.post('*', function(req, res, next) {
+//     setHeader(res);
+//     next();
+// })
+// app.put('*', function(req, res, next) {
+//     setHeader(res);
+//     next();
+// })
+// app.delete('*', function(req, res, next) {
+//     setHeader(res);
+//     next();
+// })
 
 app.get('/test-list', function(req, res) {
     fs.readFile('test.json', function(err, data) {
