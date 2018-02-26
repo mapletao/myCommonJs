@@ -25,7 +25,7 @@
         this.request();
     };
     CreatXml.prototype = {
-        construct: CreatXml,
+        constructor: CreatXml,
         setOpt: function(option) {
             this.setting = {
                 async: true,
